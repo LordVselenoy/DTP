@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>772</width>
+    <height>645</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>772</width>
+    <height>645</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>772</width>
+    <height>645</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Журнал задач</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QCalendarWidget" name="calendarWidget">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>0</y>
+      <width>361</width>
+      <height>190</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>197</y>
+      <width>761</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Клиент</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Задача</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Дата заказа</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Исполнитель</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Дата начала</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Срок исполнения</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Дата закрытия</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QGroupBox" name="dateGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>0</y>
+      <width>181</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Фильтр по датам</string>
+    </property>
+    <widget class="QDateEdit" name="dateEditIn">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>58</x>
+       <y>49</y>
+       <width>110</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>7</x>
+       <y>54</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Старт</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="dateEditOut">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>58</x>
+       <y>79</y>
+       <width>110</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>83</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Финиш</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="filterButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>107</y>
+       <width>161</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Применить фильтр</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../icons/filter48.png</normaloff>../icons/filter48.png</iconset>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="dbGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>158</x>
+      <y>561</y>
+      <width>451</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>5</y>
+       <width>441</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addButton">
+        <property name="text">
+         <string>Добавить</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/add48.png</normaloff>../icons/add48.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="editButton">
+        <property name="text">
+         <string>Изменить</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/edit48.png</normaloff>../icons/edit48.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="delButton">
+        <property name="text">
+         <string>Удалить</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/delete48.png</normaloff>../icons/delete48.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="guideGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>556</x>
+      <y>0</y>
+      <width>211</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Справочники</string>
+    </property>
+    <widget class="QPushButton" name="customerButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>48</y>
+       <width>161</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>161</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Клиенты</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="executorButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>78</y>
+       <width>161</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>161</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Исполнители</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="statusButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>108</y>
+       <width>161</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>161</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Статусы</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>772</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
