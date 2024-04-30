@@ -98,6 +98,10 @@ class MainWindow(QMainWindow):
         self.setGeometry(300, 300, 300, 200)
 
         self.label = QLabel("Выберите действие:", self)
+        
+        self.theme_button = QPushButton("Стандартная тема", self)
+        self.theme_button.clicked.connect(self.toggle_theme)
+        self.theme_button.setStyleSheet("background-color: #F0F0F0; color: #000000;")
 
         self.register_button = QPushButton(QIcon("add48.png"), "Зарегистрировать задачу", self)
         self.register_button.clicked.connect(self.register_task)
@@ -122,6 +126,7 @@ class MainWindow(QMainWindow):
 
         self.layout = QVBoxLayout()
         self.layout.addWidget(self.label)
+        self.layout.addWidget(self.theme_button)
         self.layout.addWidget(self.register_button)
         self.layout.addWidget(self.complete_button)
         self.layout.addWidget(self.delete_button)
@@ -132,6 +137,49 @@ class MainWindow(QMainWindow):
         self.widget = QWidget(self)
         self.widget.setLayout(self.layout)
         self.setCentralWidget(self.widget)
+
+        self.setStyleSheet("""
+            QMainWindow {
+                background-color: #333333;
+                color: #ffffff;
+            }
+            QLabel {
+                color: #ffffff;
+            }
+            QPushButton {
+                background-color: #555555;
+                color: #ffffff;
+                border: none;
+                padding: 8px 16px;
+            }
+            QPushButton:hover {
+                background-color: #777777;
+            }
+            QComboBox {
+                background-color: #555555;
+                color: #ffffff;
+            }
+            QComboBox::down-arrow {
+                image: url(down_arrow.png);
+            }
+            QComboBox QAbstractItemView {
+                background-color: #555555;
+                color: #ffffff;
+                selection-background-color: #777777;
+            }
+            QListWidget {
+                background-color: #555555;
+                color: #ffffff;
+                border: none;
+                padding: 8px;
+            }
+            QListWidget::item {
+                padding: 4px;
+            }
+            QListWidget::item:selected {
+                background-color: #777777;
+            }
+        """)
 
     def register_task(self):
         description, ok = QInputDialog.getText(self, "Регистрация задачи", "Введите описание задачи:")
@@ -145,6 +193,144 @@ class MainWindow(QMainWindow):
                         task = self.task_manager.register_task(description, assignee, start_date, deadline)
                         if task:
                             self.task_list_widget.addItem(f"{task.task_id}: {description}")
+                            
+    def toggle_theme(self):
+        if self.theme_button.text() == "Стандартная тема":
+            self.theme_button.setText("Темная тема")
+            self.theme_button.setStyleSheet("background-color: #000000; color: #ffffff;")
+            self.setStyleSheet("""
+                QMainWindow {
+                    background-color: #222222;
+                    color: #ffffff;
+                }
+                QLabel {
+                    color: #ffffff;
+                }
+                QPushButton {
+                    background-color: #444444;
+                    color: #ffffff;
+                    border: none;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #666666;
+                }
+                QComboBox {
+                    background-color: #444444;
+                    color: #ffffff;
+                }
+                QComboBox::down-arrow {
+                    image: url(down_arrow_white.png);
+                }
+                QComboBox QAbstractItemView {
+                    background-color: #444444;
+                    color: #ffffff;
+                    selection-background-color: #666666;
+                }
+                QListWidget {
+                    background-color: #444444;
+                    color: #ffffff;
+                    border: none;
+                    padding: 8px;
+                }
+                QListWidget::item {
+                    padding: 4px;
+                }
+                QListWidget::item:selected {
+                    background-color: #666666;
+                }
+            """)
+        elif self.theme_button.text() == "Темная тема":
+            self.theme_button.setText("Светлая тема")
+            self.theme_button.setStyleSheet("background-color: #F0F0F0; color: #000000;")
+            self.setStyleSheet("""
+                QMainWindow {
+                    background-color: #F0F0F0;
+                    color: #000000;
+                }
+                QLabel {
+                    color: #000000;
+                }
+                QPushButton {
+                    background-color: #DDDDDD;
+                    color: #000000;
+                    border: none;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #CCCCCC;
+                }
+                QComboBox {
+                    background-color: #DDDDDD;
+                    color: #000000;
+                }
+                QComboBox::down-arrow {
+                    image: url(down_arrow_black.png);
+                }
+                QComboBox QAbstractItemView {
+                    background-color: #DDDDDD;
+                    color: #000000;
+                    selection-background-color: #CCCCCC;
+                }
+                QListWidget {
+                    background-color: #DDDDDD;
+                    color: #000000;
+                    border: none;
+                    padding: 8px;
+                }
+                QListWidget::item {
+                    padding: 4px;
+                }
+                QListWidget::item:selected {
+                    background-color: #CCCCCC;
+                }
+            """)
+        elif self.theme_button.text() == "Светлая тема":
+            self.theme_button.setText("Стандартная тема")
+            self.theme_button.setStyleSheet("background-color: #F0F0F0; color: #000000;")
+            self.setStyleSheet("""
+                QMainWindow {
+                    background-color: #333333;
+                    color: #ffffff;
+                }
+                QLabel {
+                    color: #ffffff;
+                }
+                QPushButton {
+                    background-color: #555555;
+                    color: #ffffff;
+                    border: none;
+                    padding: 8px 16px;
+                }
+                QPushButton:hover {
+                    background-color: #777777;
+                }
+                QComboBox {
+                    background-color: #555555;
+                    color: #ffffff;
+                }
+                QComboBox::down-arrow {
+                    image: url(down_arrow.png);
+                }
+                QComboBox QAbstractItemView {
+                    background-color: #555555;
+                    color: #ffffff;
+                    selection-background-color: #777777;
+                }
+                QListWidget {
+                    background-color: #555555;
+                    color: #ffffff;
+                    border: none;
+                    padding: 8px;
+                }
+                QListWidget::item {
+                    padding: 4px;
+                }
+                QListWidget::item:selected {
+                    background-color: #777777;
+                }
+            """)
+
 
     def complete_task(self):
         selected_item = self.task_list_widget.currentItem()
